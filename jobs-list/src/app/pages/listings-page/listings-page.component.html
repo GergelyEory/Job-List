@@ -1,4 +1,10 @@
-<img src="assets/images/bg-header-desktop.svg" alt="desktop-header">
-<div class="card-container">
-  <p>listings-page works!</p>
+<img src="assets/images/bg-header-desktop.svg" alt="desktop-header" />
+<div class="container">
+	<app-tag-filter></app-tag-filter>
+	<div class="card-container">
+		<app-listing-card
+			class="listing-card"
+			*ngFor="let listing of jobsStore.filteredListings$ | async"
+			[listing]="listing"></app-listing-card>
+	</div>
 </div>

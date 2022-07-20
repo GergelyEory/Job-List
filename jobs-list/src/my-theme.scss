@@ -1,0 +1,36 @@
+@use '@angular/material' as mat;
+
+$my-typography: mat.define-typography-config(
+  $font-family: 'Spartan',
+  $title: mat.define-typography-level(24px, 32px, bold)
+);
+
+@include mat.core();
+
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+
+$my-palette: (
+  200: hsl(180, 31%, 95%),
+  500: hsl(180, 29%, 50%),
+  A100: hsl(180, 52%, 96%),
+  A400: hsl(180, 8%, 52%),
+  A700: hsl(180, 14%, 20%),
+  contrast: (
+    200: $dark-secondary-text,
+    500: $dark-primary-text,
+    700: $light-primary-text,
+    A100: $dark-secondary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$my-primary: mat.define-palette($my-palette, 500, 200, A700);
+$my-accent: mat.define-palette($my-palette, A400, A100, A700);
+
+$my-theme: mat.define-light-theme($my-primary, $my-accent);
+
+@include mat.all-component-themes($my-theme);

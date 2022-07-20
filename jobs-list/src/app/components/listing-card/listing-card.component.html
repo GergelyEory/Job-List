@@ -1,0 +1,31 @@
+<mat-card class="mat-elevation-z2">
+	<mat-card-header>
+		<img mat-card-avatar [src]="'assets/' + listing.logo" />
+		<div>
+			<div class="title-tags">
+				<mat-card-subtitle class="company-title">
+					{{ listing.company }}
+				</mat-card-subtitle>
+				<mat-chip-list>
+					<mat-chip *ngIf="listing.new" class="small-chip">New!</mat-chip>
+					<mat-chip *ngIf="listing.featured" class="small-chip">Featured</mat-chip>
+				</mat-chip-list>
+			</div>
+			<mat-card-title>{{ listing.position }}</mat-card-title>
+			<mat-card-subtitle>
+				{{ listing.postedAt }}
+				<b class="dot-padding">&centerdot;</b>
+				{{ listing.contract }}
+				<b class="dot-padding">&centerdot;</b>
+				{{ listing.location }}
+			</mat-card-subtitle>
+		</div>
+	</mat-card-header>
+	<div>
+		<mat-chip-list>
+			<mat-chip *ngFor="let tag of listing.tags" (click)="jobsStore.addTag(tag)" class="chip">
+				{{ tag }}
+			</mat-chip>
+		</mat-chip-list>
+	</div>
+</mat-card>

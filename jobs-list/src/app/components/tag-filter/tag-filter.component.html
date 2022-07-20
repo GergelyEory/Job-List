@@ -1,1 +1,13 @@
-<p>tag-filter works!</p>
+<mat-card *ngIf="showTags$ | async" class="mat-elevation-z2 tag-filter">
+	<div class="tag-container">
+		<mat-chip-list>
+			<mat-chip *ngFor="let tag of jobsStore.tags$ | async" (removed)="jobsStore.removeTag(tag)" class="chip">
+				{{ tag }}
+				<button matChipRemove>
+					<mat-icon>cancel</mat-icon>
+				</button>
+			</mat-chip>
+		</mat-chip-list>
+		<button mat-flat-button (click)="jobsStore.clearTags()">clear</button>
+	</div>
+</mat-card>

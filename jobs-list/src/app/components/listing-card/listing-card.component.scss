@@ -1,0 +1,24 @@
+.dot-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.chip {
+  border-radius: 5px;
+}
+
+.title-tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.small-chip {
+  min-height: 20px;
+}
+
+.company-title {
+  margin: 0;
+  padding-right: 10px;
+}
