@@ -1,8 +1,15 @@
 @use '@angular/material' as mat;
+//@import url('https://fonts.google.com/specimen/League+Spartan');
+
+@font-face {
+  font-family: 'League Spartan';
+  src: local('League Spartan'), url("./assets/fonts/LeagueSpartan-VariableFont_wght.ttf");
+}
 
 $my-typography: mat.define-typography-config(
-  $font-family: 'Spartan',
-  $title: mat.define-typography-level(24px, 32px, bold)
+  $font-family: 'League Spartan',
+  $title: mat.define-typography-level(24px, 32px, bold, $font-family: 'League Spartan'),
+  $body-1: mat.define-typography-level(15px, 1, 800, $font-family: 'League Spartan')
 );
 
 @include mat.core();
@@ -31,6 +38,12 @@ $my-palette: (
 $my-primary: mat.define-palette($my-palette, 500, 200, A700);
 $my-accent: mat.define-palette($my-palette, A400, A100, A700);
 
-$my-theme: mat.define-light-theme($my-primary, $my-accent);
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent
+  ),
+  typography: $my-typography,
+));
 
 @include mat.all-component-themes($my-theme);

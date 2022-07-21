@@ -1,6 +1,8 @@
-<mat-chip (removed)="onRemove()">
-	{{ value }}
-	<button matChipRemove>
-		<mat-icon>cancel</mat-icon>
+<div class="tag-body" [ngClass]="removable ? 'removable' : 'selectable'">
+	<div class="tag-text">
+		{{ value }}
+	</div>
+	<button *ngIf="removable" class="remove-button" (click)="onRemove()">
+		<img src="assets/images/icon-remove.svg" alt="icon-remove" />
 	</button>
-</mat-chip>
+</div>

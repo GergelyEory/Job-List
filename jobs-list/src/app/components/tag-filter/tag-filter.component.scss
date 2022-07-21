@@ -1,13 +1,29 @@
+@import "~@angular/material/theming";
+@import '../../../my-theme.scss';
+
 .tag-filter{
   margin-top: -35px;
-}
-
-.tag-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.chip {
-  border-radius: 5px;
+.tag-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.select-tag {
+  margin: 5px;
+}
+
+.clear-button {
+  color: mat-color($my-primary, default) !important;
+  font-size: 17px;
+}
+
+.clear-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

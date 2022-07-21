@@ -1,0 +1,37 @@
+@import "~@angular/material/theming";
+@import '../../../my-theme.scss';
+
+.tag-body {
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: mat-color($my-primary, lighter);
+  color: mat-color($my-accent, default);
+}
+
+.tag-text {
+  padding: 10px;
+}
+
+.removable {
+  display: flex;
+  flex-direction: row;
+}
+
+.remove-button {
+  width: 34.5px;
+  background-color: mat-color($my-accent, default);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: mat-color($my-accent, darker);
+  cursor: pointer;
+}
+
+.selectable:hover {
+  background-color: mat-color($my-primary, default) !important;
+  color: white !important;
+  cursor: pointer;
+}

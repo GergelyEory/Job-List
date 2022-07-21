@@ -1,13 +1,12 @@
 <mat-card *ngIf="showTags$ | async" class="mat-elevation-z2 tag-filter">
 	<div class="tag-container">
-		<mat-chip-list>
-			<mat-chip *ngFor="let tag of jobsStore.tags$ | async" (removed)="jobsStore.removeTag(tag)" class="chip">
-				{{ tag }}
-				<button matChipRemove>
-					<mat-icon>cancel</mat-icon>
-				</button>
-			</mat-chip>
-		</mat-chip-list>
-		<button mat-flat-button (click)="jobsStore.clearTags()">clear</button>
+		<app-select-tag
+			*ngFor="let tag of jobsStore.tags$ | async"
+			class="select-tag"
+			[value]="tag"
+			[removable]="true"
+			(removed)="jobsStore.removeTag(tag)">
+		</app-select-tag>
 	</div>
+	<button mat-flat-button class="clear-button" (click)="jobsStore.clearTags()">Clear</button>
 </mat-card>

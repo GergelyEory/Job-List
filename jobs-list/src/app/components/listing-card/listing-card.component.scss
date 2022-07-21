@@ -1,10 +1,8 @@
-.dot-padding {
-  padding-left: 10px;
-  padding-right: 10px;
-}
+@import "~@angular/material/theming";
+@import '../../../my-theme.scss';
 
-.chip {
-  border-radius: 5px;
+.left-highlight {
+  border-left: 5px solid mat-color($my-accent, default);
 }
 
 .title-tags {
@@ -14,11 +12,113 @@
   margin-bottom: 10px;
 }
 
-.small-chip {
-  min-height: 20px;
-}
-
 .company-title {
   margin: 0;
   padding-right: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  color:  mat-color($my-accent, default);
+}
+
+.small-chip {
+  min-height: 20px;
+  color: white !important;
+  font-weight: 700;
+}
+
+.featured-chip {
+  background-color: mat-color($my-accent, darker) !important;
+}
+
+.new-chip {
+  background-color: mat-color($my-accent, default) !important;
+}
+
+.card-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.card-title:hover {
+  cursor: pointer;
+  color: mat-color($my-primary, default);
+}
+
+.subtitle {
+  margin-bottom: 0;
+  font-size: 16px;
+  color: mat-color($my-accent, default);
+}
+
+.dot-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.select-tag {
+  margin: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .job-card {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card-header {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tag-list {
+    width: 50%;
+    height: 100%;
+    margin: auto !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    flex-wrap: wrap;
+  }
+
+  .avatar {
+    height: 60px;
+    width: 60px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .job-card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .card-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tag-list {
+    width: 100%;
+    border-top: 1px solid mat-color($my-accent, default);
+    padding-top: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .avatar {
+    height: 50px;
+    width: 50px;
+    margin-top: -40px;
+  }
+
+  .title-tags {
+    padding-top: 15px;
+  }
 }

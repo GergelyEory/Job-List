@@ -1,6 +1,34 @@
-.container {
-  margin: auto;
-  max-width: 960px;
+@import "~@angular/material/theming";
+@import '../../../my-theme.scss';
+
+.header-image {
+  background-color: mat-color($my-accent, default);
+  width: 100%;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    margin: auto;
+    max-width: min(960px, 90%);
+  }
+
+  .header-image {
+    background-image: url("../../../assets/images/bg-header-desktop.svg");
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+
+  .header-image {
+    background-image: url("../../../assets/images/bg-header-mobile.svg");
+  }
 }
 
 .card-container {
@@ -12,9 +40,3 @@
 .listing-card {
   margin-top: 20px;
 }
-
-img {
-  width: 100%;
-  max-height: 120px;
-}
-

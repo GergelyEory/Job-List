@@ -1,18 +1,18 @@
-<mat-card class="mat-elevation-z2">
-	<mat-card-header>
-		<img mat-card-avatar [src]="'assets/' + listing.logo" />
+<mat-card class="mat-elevation-z5 job-card" [ngClass]="{ 'left-highlight': listing.featured }">
+	<mat-card-header class="card-header">
+		<img class="avatar" mat-card-avatar [src]="'assets/' + listing.logo" />
 		<div>
 			<div class="title-tags">
 				<mat-card-subtitle class="company-title">
 					{{ listing.company }}
 				</mat-card-subtitle>
 				<mat-chip-list>
-					<mat-chip *ngIf="listing.new" class="small-chip">New!</mat-chip>
-					<mat-chip *ngIf="listing.featured" class="small-chip">Featured</mat-chip>
+					<mat-chip disableRipple *ngIf="listing.new" class="small-chip new-chip">NEW!</mat-chip>
+					<mat-chip disableRipple *ngIf="listing.featured" class="small-chip featured-chip">FEATURED</mat-chip>
 				</mat-chip-list>
 			</div>
-			<mat-card-title>{{ listing.position }}</mat-card-title>
-			<mat-card-subtitle>
+			<mat-card-title class="card-title">{{ listing.position }}</mat-card-title>
+			<mat-card-subtitle class="subtitle">
 				{{ listing.postedAt }}
 				<b class="dot-padding">&centerdot;</b>
 				{{ listing.contract }}
@@ -21,11 +21,8 @@
 			</mat-card-subtitle>
 		</div>
 	</mat-card-header>
-	<div>
-		<mat-chip-list>
-			<mat-chip *ngFor="let tag of listing.tags" (click)="jobsStore.addTag(tag)" class="chip">
-				{{ tag }}
-			</mat-chip>
-		</mat-chip-list>
+	<div class="tag-list">
+		<app-select-tag *ngFor="let tag of listing.tags" class="select-tag" [value]="tag" (click)="jobsStore.addTag(tag)">
+		</app-select-tag>
 	</div>
 </mat-card>

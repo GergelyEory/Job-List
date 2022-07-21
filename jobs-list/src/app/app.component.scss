@@ -1,0 +1,7 @@
+@import "~@angular/material/theming";
+@import '../my-theme.scss';
+
+.background-color {
+  min-height: 100vh;
+  background-color: mat-color($my-accent, lighter);
+}

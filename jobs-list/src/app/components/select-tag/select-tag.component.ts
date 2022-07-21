@@ -8,6 +8,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 })
 export class SelectTagComponent {
 	@Input() value!: string;
+	@Input() removable: boolean = false;
 	@Output() removed = new EventEmitter<string>();
 
 	onRemove(): void {
